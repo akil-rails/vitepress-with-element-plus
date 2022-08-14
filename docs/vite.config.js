@@ -15,7 +15,5 @@ export default {
       resolvers: [ElementPlusResolver({ ssr: false })]
     })
   ],
-  ssgOptions: {
-    format: 'cjs'
-  }
+  ssr: { noExternal: ['element-plus'] }
 }
