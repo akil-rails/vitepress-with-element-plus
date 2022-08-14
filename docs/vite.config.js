@@ -15,5 +15,21 @@ export default {
       resolvers: [ElementPlusResolver({ ssr: false })]
     })
   ],
-  ssr: { noExternal: ['element-plus'] }
+  ssr: { noExternal: ['element-plus'] },
+  css: {
+    postcss: {
+      plugins: [
+        {
+          postcssPlugin: 'internal:charset-removal',
+          AtRule: {
+            charset: (atRule) => {
+              if (atRule.name === 'charset') {
+                atRule.remove();
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
 }
