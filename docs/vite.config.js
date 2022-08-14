@@ -12,8 +12,10 @@ export default {
     Components({
       dirs: ['components'],
       include: [/\.vue$/, /\.md$/],
-      resolvers: [ElementPlusResolver({ ssr: true })]
+      resolvers: [ElementPlusResolver({ ssr: false })]
     })
   ],
-  ssr: { noExternal: ['@arco-design/web-vue'] }
+  ssgOptions: {
+    format: 'cjs'
+  }
 }
