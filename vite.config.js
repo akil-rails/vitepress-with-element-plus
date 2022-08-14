@@ -1,13 +1,16 @@
+import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { ArcoResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default {
   plugins: [
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),    
     Components({
-      dirs: ['components'],
+      dirs: ['docs/components'],
       include: [/\.vue$/, /\.md$/],
-      resolvers: [ArcoResolver({ sideEffect: true })]
+      resolvers: [ElementPlusResolver()],
     })
-  ],
-  ssr: { noExternal: ['@arco-design/web-vue'] }
+  ]
 }
