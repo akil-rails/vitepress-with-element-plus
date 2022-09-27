@@ -6,13 +6,13 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default {
   plugins: [
     AutoImport({
-      include: [/\.vue$/, /\.md$/],
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [ElementPlusResolver()],
     }),    
     Components({
       dirs: ['components'],
-      include: [/\.vue$/, /\.md$/],
-      resolvers: [ElementPlusResolver({ ssr: false })]
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      resolvers: [ElementPlusResolver()]
     })
   ],
   ssr: { noExternal: ['element-plus'] },
